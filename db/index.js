@@ -7,8 +7,9 @@ const url =
 	'mongodb+srv://susana_silva:NTmF9V20QcXF25Hg@project.dmf683l.mongodb.net/paas';
 
 const openDbConnection = async function main() {
-	await mongoose.connect(url);
+	const db = await mongoose.connect(url);
 	console.log('Connected to MongoDB');
+	return db;
 };
 
 const closeDbConnection = async () => {
