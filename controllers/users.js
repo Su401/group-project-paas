@@ -16,30 +16,35 @@ const userController = async ((req, res, next) => {
 	const companyAddress = req.body.companyAddress;
 	const companyCAE = req.body.companyCAE;
 	const companyNIPC = req.body.companyNIPC;
-const user = await User.create({
-	username: username,
-	fullName: fullName,
-	birthday: birthday,
-	email: email,
-	phone: phone,
-	role: role,
-	address: userAddress,
-	nif: nif,
-	insurance: {
-		name: insuranceName,
-		policy: insurancePolicy,
-	},
-	company: {
-		name: companyName,
-		address: companyAddress,
-		cae: companyCAE,
-		nipc: companyNIPC,
-}});
-console.log(user);
+
+	const user = await User.create({
+		username: username,
+		fullName: fullName,
+		birthday: birthday,
+		email: email,
+		phone: phone,
+		role: role,
+		address: userAddress,
+		nif: nif,
+		insurance: {
+			name: insuranceName,
+			policy: insurancePolicy,
+		},
+		company: {
+			name: companyName,
+			address: companyAddress,
+			cae: companyCAE,
+			nipc: companyNIPC,
+		}
+	});
+
+	console.log(user);
+
+	return user;
 });
 
 module.exports = {
-	user,
+	userController,
 };
 /* 
 const createUserController = async (req, res, next) => {
