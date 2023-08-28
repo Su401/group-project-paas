@@ -2,12 +2,7 @@ const express = require('express');
 const { sessionMiddleware } = require('./sessions');
 const { openDbConnection, closeDbConnection } = require('./db');
 
-const {
-	createUserController,
-	getCurrentUserController,
-	addUserInfoController,
-	getAllUsersController,
-} = require('./controllers/users');
+const { user } = require('./controllers/users');
 
 const { errorHandlerMiddleware } = require('./errors');
 
@@ -27,10 +22,7 @@ app.use(sessionMiddleware);
 app.use(initRequest);
 
 //users
-app.post('/api/users', createUserController);
-app.get('/api/users/me', getCurrentUserController);
-app.get('/api/users/list', getAllUsersController);
-app.put('/api/users/info', addUserInfoController);
+app.post('/api/users', user);
 
 // every err object has "message" attribute and "code" attribute
 app.use(errorHandlerMiddleware);

@@ -21,6 +21,7 @@ const userSchema = new Schema({
 		nipc: Number,
 	},
 });
+console.log(userSchema);
 
 const User = model('User', userSchema);
 

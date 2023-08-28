@@ -1,26 +1,46 @@
 const { User } = require('../db');
 
+const userController = async ((req, res, next) => {
+	const username = req.body.username;
+	//const password = req.body.password;
+	const fullName = req.body.fullName;
+	const birthday = req.body.birthday;
+	const email = req.body.email;
+	const phone = req.body.phone;
+	const role = req.body.role;
+	const nif = req.body.nif;
+	const userAddress = req.body.userAddress;
+	const insuranceName = req.body.insuranceName;
+	const insurancePolicy = req.body.insurancePolicy;
+	const companyName = req.body.companyName;
+	const companyAddress = req.body.companyAddress;
+	const companyCAE = req.body.companyCAE;
+	const companyNIPC = req.body.companyNIPC;
 const user = await User.create({
-	username: req.body.username,
-	fullName: 'Susana Silva',
-	birthday: '1996-10-10',
-	email: 'somesome@email.com',
-	phone: '912345678',
-	role: 'user',
-	address: 'Rua do Porto',
-	nif: '123456789',
+	username: username,
+	fullName: fullName,
+	birthday: birthday,
+	email: email,
+	phone: phone,
+	role: role,
+	address: userAddress,
+	nif: nif,
 	insurance: {
-		name: 'Allianz',
-		policy: '123456789',
+		name: insuranceName,
+		policy: insurancePolicy,
 	},
 	company: {
-		name: 'Allianz',
-		address: 'Rua do Porto',
-		cae: '123456789',
-		nipc: '123456789',
-	},
-});
+		name: companyName,
+		address: companyAddress,
+		cae: companyCAE,
+		nipc: companyNIPC,
+}});
 console.log(user);
+});
+
+module.exports = {
+	user,
+};
 /* 
 const createUserController = async (req, res, next) => {
 	const username = req.body.username;
