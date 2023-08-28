@@ -1,6 +1,33 @@
-const { ObjectId } = require('mongodb');
+const mongoose = require('mongoose');
+const { Schema, model } = mongoose;
 
-const createUser = async (db, username, password) => {
+const userSchema = new Schema({
+	username: String,
+	fullName: String,
+	birthday: Date,
+	email: String,
+	phone: Number,
+	role: String,
+	address: String,
+	nif: Number,
+	insurance: {
+		name: String,
+		policy: Number,
+	},
+	company: {
+		name: String,
+		address: String,
+		cae: Number,
+		nipc: Number,
+	},
+});
+
+const User = model('User', userSchema);
+
+module.exports = {
+	User,
+};
+/* const createUser = async (db, username, password) => {
 	const usersCollection = db.collection('users');
 	const user = {
 		username,
@@ -51,13 +78,13 @@ const getAllUsers = async (db) => {
 	const usersCollection = db.collection('users');
 	const users = await usersCollection.find({}).toArray();
 	return users;
-};
-
+}; 
 module.exports = {
 	createUser,
 	getUserByUsername,
 	addUserInfo,
 	getAllUsers,
 };
+*/
 
 //<-------CREATE UPDATE PASSWORD-------->

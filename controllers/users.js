@@ -1,10 +1,27 @@
-const {
-	createUser,
-	getUserByUsername,
-	addUserInfo,
-	getAllUsers,
-} = require('../db');
+const { User } = require('../db');
 
+const user = await User.create({
+	username: req.body.username,
+	fullName: 'Susana Silva',
+	birthday: '1996-10-10',
+	email: 'somesome@email.com',
+	phone: '912345678',
+	role: 'user',
+	address: 'Rua do Porto',
+	nif: '123456789',
+	insurance: {
+		name: 'Allianz',
+		policy: '123456789',
+	},
+	company: {
+		name: 'Allianz',
+		address: 'Rua do Porto',
+		cae: '123456789',
+		nipc: '123456789',
+	},
+});
+console.log(user);
+/* 
 const createUserController = async (req, res, next) => {
 	const username = req.body.username;
 	const password = req.body.password;
@@ -94,3 +111,4 @@ module.exports = {
 	addUserInfoController,
 	getAllUsersController,
 };
+ */
