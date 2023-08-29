@@ -2,7 +2,7 @@ const express = require('express');
 const { sessionMiddleware } = require('./sessions');
 const { openDbConnection, closeDbConnection } = require('./db');
 
-const { user } = require('./controllers/users');
+const { userController } = require('./controllers/users');
 
 const { errorHandlerMiddleware } = require('./errors');
 
@@ -22,16 +22,10 @@ app.use(sessionMiddleware);
 app.use(initRequest);
 
 //users
-app.post('/api/users', user);
+app.post('/api/users', userController);
 
 // every err object has "message" attribute and "code" attribute
 app.use(errorHandlerMiddleware);
-
-app.get('/api/status', (req, res) => {
-	res.status(200).json({
-		status: 'up',
-	});
-});
 
 const server = app.listen(3000, async () => {
 	db = await openDbConnection();
