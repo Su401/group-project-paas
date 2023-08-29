@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
+const bcryptjs = require('bcrypt');
+require('../config/db.js');
+// funcao incript pass
 
 const userSchema = new Schema({
 	username: String,
+	//pass: funcao
 	fullName: String,
 	birthday: Date,
 	email: String,
@@ -23,7 +27,7 @@ const userSchema = new Schema({
 });
 console.log(userSchema);
 
-const User = model('User', userSchema);
+const User = model('User', userSchema, 'users');
 
 module.exports = {
 	User,

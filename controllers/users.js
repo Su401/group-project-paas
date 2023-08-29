@@ -1,6 +1,6 @@
 const { User } = require('../db');
 
-const userController = async ((req, res, next) => {
+const userController = async (req, res, next) => {
 	const username = req.body.username;
 	//const password = req.body.password;
 	const fullName = req.body.fullName;
@@ -35,13 +35,13 @@ const userController = async ((req, res, next) => {
 			address: companyAddress,
 			cae: companyCAE,
 			nipc: companyNIPC,
-		}
+		},
 	});
 
 	console.log(user);
 
 	return user;
-});
+};
 
 module.exports = {
 	userController,

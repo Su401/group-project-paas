@@ -22,7 +22,7 @@ app.use(sessionMiddleware);
 app.use(initRequest);
 
 //users
-app.post('/api/users', userController);
+app.post('/api/users', userController, 'users');
 
 // every err object has "message" attribute and "code" attribute
 app.use(errorHandlerMiddleware);
