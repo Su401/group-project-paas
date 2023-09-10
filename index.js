@@ -1,3 +1,5 @@
+//INSERIR JOI
+
 const express = require('express');
 const { sessionMiddleware } = require('./sessions');
 const { openDbConnection, closeDbConnection } = require('./db');
