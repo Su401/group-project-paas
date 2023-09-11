@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 //const { Schema, model } = mongoose;
 const usersModule = require('./users');
+const logsModule = require('./logs');
 
 const url =
 	'mongodb+srv://susana_silva:NTmF9V20QcXF25Hg@project.dmf683l.mongodb.net/paas';
@@ -39,4 +40,5 @@ module.exports = {
 	openDbConnection,
 	closeDbConnection,
 	...usersModule,
+	...logsModule,
 };

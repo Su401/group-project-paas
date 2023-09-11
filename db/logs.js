@@ -154,7 +154,7 @@ const logSchema = new Schema({
 									type: Boolean,
 									required: true,
 								},
-								counter: {
+								tables: {
 									type: Boolean,
 									required: true,
 								},
